@@ -8,7 +8,9 @@ Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # bind the socket to the port
-server_address = ('localhost', 10000)
+server_address = ('192.168.12.26', 10000) # lan
+# server_address = ('localhost', 10000) # local
+
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(server_address)
 
@@ -43,12 +45,12 @@ try:
             print(data_decode)
             print('teks asli')
             print(data_asli, '\n')
+            Chain1.publishStream('stream1', 'key1', data_decode)
+            print('item published\n')
             msg = data_asli
         else:
             msg = data_asli
             print(msg)
-
-#         Chain1.publish('stream1', 'key1', data_decode)
 
 finally:
     #   Clean up the connection

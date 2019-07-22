@@ -1,10 +1,8 @@
 import socket, datetime, time
 import random, string, sys
 
-
 def hexlify(s):
     return s.encode().hex()
-
 
 # key = hexlify(''.join([random.choice(string.ascii_letters) for _ in range(1)]))
 
