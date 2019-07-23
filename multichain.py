@@ -24,6 +24,7 @@ class Multichain:
         self.chainname = chainname
         self.cpu_usage = []
         self.is_mining = False
+        self.record_cpu = False
 
         self.initApi()
 
@@ -53,7 +54,7 @@ class Multichain:
     def getStreamItems(self, stream, num):
         item = self.listStreamItems(stream, num)
 
-        data = self.api.getstreamitem(stream, txid)
+        data = self.api.getstreamitem(stream)
         return data
 
     def getStreamInfo(self, stream):
@@ -96,10 +97,10 @@ class Multichain:
         :return:
         '''
 
+        self.api.publish(stream, key, data)
+        self.is_mining = True
         def streamData():
             return self.isMined(stream, data)
-
-        self.api.publish(stream, key, data)
 
         threading.Thread(target = streamData).start()
         threading.Thread(target = self.recordCpuUsage).start()
@@ -115,14 +116,14 @@ class Multichain:
         global items
 
         # mendapatkan item terakhir (terbaru) dalam streams
-        items = self.getStreamItems(stream, 1)
+        items = self.listStreamItems(stream, 1)
 
         # mengecek apakah item terakhir (terbaru) sama dengan data inputan terakhir
         while (items[0]['data'] != data):
-            items = self.getStreamItems(stream, 1)
+            items = self.listStreamItems(stream, 1)
 
         # waktu awal item terakhir (terbaru) masuk ke dalam stream
-        self.is_mining = True
+        self.record_cpu = True
         start = time.time()
 
         print('\nStream last item data = ' + str(items[0]['data']))
@@ -130,10 +131,11 @@ class Multichain:
 
         # mengecek item terakhir (terbaru) apakah sudah di mining
         while (items[0]['confirmations'] == 0):
-            items = self.getStreamItems(stream, 1)
+            items = self.listStreamItems(stream, 1)
 
         # waktu saat item terakhir (terbaru) sudah di mining
         end = time.time()
+        self.record_cpu = False
         self.is_mining = False
 
         # mendapatkan durasi proses mining
@@ -143,22 +145,32 @@ class Multichain:
         print('Stream last item confirmations : ' + str(items[0]['confirmations']))
         print('Waktu mining = ' + str(mining_time))
 
-        self.printCpuUsage()
-
     def recordCpuUsage(self):
         while self.is_mining:
-            self.cpu_usage.append(psutil.cpu_percent(0.1))
+            global temp
+            temp = []
+
+            while self.record_cpu:
+                temp.append(psutil.cpu_percent(0.1))
+
+            if len(temp) != 0:
+                self.cpu_usage.append(temp)
 
     def printCpuUsage(self):
         if len(self.cpu_usage) != 0:
-            plt.plot(self.cpu_usage, 'r--')
-            plt.show()
+            for i in range(len(self.cpu_usage)):
+                plt.plot(self.cpu_usage[i], 'r--')
+                plt.show()
         else:
             print('data belum ada')
 
-if __name__ == '__main__':
-    Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF6f', 'localhost', '7172', 'chain1')
+    def lenCPU(self):
+        print(len(self.cpu_usage))
 
-    # items = Chain1.listStreamItems('stream1', 2)
+# if __name__ == '__main__':
+#     Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF6f', 'localhost', '7172', 'chain1')
+#
+#     items = Chain1.listStreamItems('stream1', 1)
     #
-    # Chain1.printData(items)
+    # Chain1.printData(items, True)
+    # print(items[0]['data'])

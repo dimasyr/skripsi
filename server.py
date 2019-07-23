@@ -8,8 +8,8 @@ Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # bind the socket to the port
-server_address = ('192.168.12.26', 10000) # lan
-# server_address = ('localhost', 10000) # local
+# server_address = ('192.168.12.26', 10000) # lan
+server_address = ('localhost', 10000) # local
 
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(server_address)
@@ -36,7 +36,12 @@ try:
         #   hex to string
         data_asli = bytes.fromhex(data_decode).decode('utf-8')
 
-        if data_asli != 'end' and data_asli != '':
+        if data_asli == 'printlen':
+            Chain1.lenCPU()
+            print(Chain1.cpu_usage)
+        elif data_asli == 'print':
+            Chain1.printCpuUsage()
+        elif data_asli != 'end' and data_asli != '':
             now = datetime.datetime.now()
             print('waktu =', now.strftime("%Y-%m-%d %H:%M:%S"))
             print('bytes')
@@ -46,7 +51,7 @@ try:
             print('teks asli')
             print(data_asli, '\n')
             Chain1.publishStream('stream1', 'key1', data_decode)
-            print('item published\n')
+
             msg = data_asli
         else:
             msg = data_asli
