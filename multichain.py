@@ -1,7 +1,7 @@
 from Savoir import Savoir
-import time, psutil
+import time
 import threading
-import matplotlib.pyplot as plt
+from recordCPU import RecordCPU
 
 class Multichain:
     '''
@@ -22,11 +22,13 @@ class Multichain:
         self.rpchost = rpchost
         self.rpcport = rpcport
         self.chainname = chainname
-        self.cpu_usage_publish = []
-        self.cpu_usage_search = []
-        self.is_mining = False
-        self.record_cpu = False
-        self.search_results = []
+
+        self.CPU = RecordCPU()
+        # self.cpu_usage_publish = []
+        # self.cpu_usage_search = []
+        # self.is_mining = False
+        # self.record_cpu = False
+        # self.search_results = []
 
         self.initApi()
 
@@ -37,8 +39,8 @@ class Multichain:
         '''
         self.api = Savoir(self.rpcuser, self.rpcpassword, self.rpchost, self.rpcport, self.chainname)
 
-    #         param stream (nama stream), num (jumlah data yg ingin di return)
-    def listStreamItems(self, stream, num=0, debug = False):
+    # param stream (nama stream), num (jumlah data yg ingin di return)
+    def listStreamItems(self, stream, num=0, isSearch = False):
         '''
 
         :param stream:
@@ -52,30 +54,31 @@ class Multichain:
             items = self.api.liststreamitems(stream)
             items = items[-num:]
 
-        if(debug):
-            return items
+        if(isSearch):
+            self.CPU.search_results = items
+            print(self.CPU.search_results)
         else:
-            self.search_results = items
-            print(self.search_results)
+            return items
+
 
     def searchItem(self, stream, num=0):
         def record():
-            return self.recordCpuUsage('search')
+            return self.CPU.recordCpuUsage('search')
 
         def search():
-            return self.listStreamItems(stream, num)
+            return self.listStreamItems(stream, num, True)
 
-        self.is_mining = True
-        self.record_cpu = True
+        self.CPU.is_mining = True
+        self.CPU.record_cpu = True
         threading.Thread(target = record).start()
         time.sleep(3)
         threading.Thread(target = search).start()
 
         time.sleep(3)
-        self.is_mining = False
-        self.record_cpu = False
+        self.CPU.is_mining = False
+        self.CPU.record_cpu = False
 
-        print(self.search_results)
+        print(self.CPU.search_results)
 
     # belum selesai (untuk melihat detail item)
     def getStreamItems(self, stream, num):
@@ -134,10 +137,10 @@ class Multichain:
             return self.isMined(stream, data)
 
         def record():
-            return self.recordCpuUsage('publish')
+            return self.CPU.recordCpuUsage('publish')
 
-        self.is_mining = True
-        self.record_cpu = True
+        self.CPU.is_mining = True
+        self.CPU.record_cpu = True
 
         threading.Thread(target = record).start()
         time.sleep(3)
@@ -175,8 +178,9 @@ class Multichain:
         # waktu saat item terakhir (terbaru) sudah di mining
         end = time.time()
         time.sleep(3)
-        self.record_cpu = False
-        self.is_mining = False
+        self.CPU.record_cpu = False
+        self.CPU.is_mining = False
+
 
         # mendapatkan durasi proses mining
         mining_time = end - start
@@ -185,49 +189,8 @@ class Multichain:
         print('Stream last item confirmations : ' + str(items[0]['confirmations']))
         print('Waktu mining = ' + str(mining_time))
 
-    def recordCpuUsage(self, opt):
-        while self.is_mining:
-            global temp
-            temp = []
-
-            while self.record_cpu:
-                temp.append(psutil.cpu_percent(0.1))
-
-            if len(temp) != 0:
-                if opt == 'publish':
-                    self.cpu_usage_publish.append(temp)
-                elif opt == 'search':
-                    self.cpu_usage_search.append(temp)
-
-    def printCpuUsage(self, opt = 'publish'):
-        if opt == 'publish':
-            if len(self.cpu_usage_publish) != 0:
-                for i in range(len(self.cpu_usage_publish)):
-                    plt.plot(self.cpu_usage_publish[i], 'r--')
-                    plt.show()
-            else:
-                print('data belum ada')
-
-        elif opt == 'search':
-            if len(self.cpu_usage_search) != 0:
-                for i in range(len(self.cpu_usage_search)):
-                    plt.plot(self.cpu_usage_search[i], 'r--')
-                    plt.show()
-            else:
-                print('data belum ada')
-        else:
-            print('data tidak ada')
-
-    def lenCPU(self, opt = 'publish'):
-        if opt == 'publish':
-            print(len(self.cpu_usage_publish))
-        elif opt == 'search':
-            print(len(self.cpu_usage_search))
-        else:
-            print('data tidak ada')
-
-if __name__ == '__main__':
-    Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF6f', 'localhost', '7172', 'chain1')
+# if __name__ == '__main__':
+#     Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF6f', 'localhost', '7172', 'chain1')
 
     # items = Chain1.listStreamItems('stream1', 12)
     #
