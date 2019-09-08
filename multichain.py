@@ -60,7 +60,6 @@ class Multichain:
         else:
             return items
 
-
     def searchItem(self, stream, num=0):
         def record():
             return self.CPU.recordCpuUsage('search')
@@ -145,8 +144,15 @@ class Multichain:
         threading.Thread(target = record).start()
         time.sleep(3)
         self.api.publish(stream, key, data)
-
         threading.Thread(target = streamData).start()
+
+        proses = ''
+
+        while self.CPU.is_mining == True:
+            if self.CPU.is_mining == False:
+                proses = 'done'
+
+        return proses
 
     def isMined(self, stream, data):
         '''
@@ -180,7 +186,6 @@ class Multichain:
         time.sleep(3)
         self.CPU.record_cpu = False
         self.CPU.is_mining = False
-
 
         # mendapatkan durasi proses mining
         mining_time = end - start

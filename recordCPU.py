@@ -9,13 +9,14 @@ class RecordCPU:
         self.record_cpu = False
         self.search_results = []
 
-    def recordCpuUsage(self, opt):
+    def recordCpuUsage(self, opt = 'publish'):
         while self.is_mining:
             global temp
             temp = []
 
             while self.record_cpu:
                 temp.append(psutil.cpu_percent(0.1))
+                print('mining broo')
 
             if len(temp) != 0:
                 if opt == 'publish':

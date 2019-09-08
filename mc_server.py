@@ -1,10 +1,10 @@
-import socket, sys, datetime
+import socket, sys, datetime, time
 from multichain import Multichain
 import threading
 
-# TCP_IP = '10.130.51.14'
-TCP_IP = '127.0.0.1' #localhost
-TCP_PORT = 8888
+TCP_IP = '10.130.51.237'
+# TCP_IP = '127.0.0.1' #localhost
+TCP_PORT = 8889
 TCP_PORT_IOT = 9999
 BUFFER_SIZE = 1024
 
@@ -109,6 +109,7 @@ if __name__ == '__main__' :
 
                     elif true_msg == 'prints':
                         Chain1.CPU.printCpuUsage('search')
+                        serv.broadcast('print')
 
                     elif true_msg[:6] == 'search':
                         Chain1.searchItem('stream1',int(true_msg[6:7]))
@@ -119,8 +120,14 @@ if __name__ == '__main__' :
                         print('teks asli')
                         print(true_msg, '\n')
                         serv.broadcast('mine')
-                        Chain1.publishStream('stream1', 'key1', hex_msg)
-                        serv.broadcast('done')
+
+                        proses = Chain1.publishStream('stream1', 'key1', hex_msg)
+
+                        print('proses :',proses)
+
+                        if proses == 'done':
+                            serv.broadcast('done')
+                            print('broadcast done')
 
                     new_msg = True
                     full_msg = ''
