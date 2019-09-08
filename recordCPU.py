@@ -16,7 +16,6 @@ class RecordCPU:
 
             while self.record_cpu:
                 temp.append(psutil.cpu_percent(0.1))
-                print('mining broo')
 
             if len(temp) != 0:
                 if opt == 'publish':
@@ -28,7 +27,12 @@ class RecordCPU:
         if opt == 'publish':
             if len(self.cpu_usage_publish) != 0:
                 for i in range(len(self.cpu_usage_publish)):
-                    plt.plot(self.cpu_usage_publish[i], 'r--')
+                    plt.style.use('_classic_test')
+                    plt.plot(self.cpu_usage_publish[i], 'r')
+                    plt.xlabel('time (ms)')
+                    plt.ylabel('CPU (%)')
+                    plt.title('CPU Usage of Mining')
+                    plt.grid(True)
                     plt.show()
             else:
                 print('data belum ada')

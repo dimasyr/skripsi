@@ -24,7 +24,6 @@ while True:
         CPU.is_mining = True
         CPU.record_cpu = True
         th.start()
-        # mining terus dadakno
 
     elif(msg == 'done'):
         print('done mining.')

@@ -105,11 +105,12 @@ if __name__ == '__main__' :
                         Chain1.CPU.lenCPU()
 
                     elif true_msg == 'print':
+                        serv.broadcast('print')
                         Chain1.CPU.printCpuUsage()
 
                     elif true_msg == 'prints':
                         Chain1.CPU.printCpuUsage('search')
-                        serv.broadcast('print')
+
 
                     elif true_msg[:6] == 'search':
                         Chain1.searchItem('stream1',int(true_msg[6:7]))

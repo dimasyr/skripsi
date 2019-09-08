@@ -1,4 +1,6 @@
 import threading, time
+import matplotlib.pyplot as plt
+from random import randrange
 
 class coba:
     def tambahx(self, x):
@@ -16,11 +18,14 @@ class coba:
             print(total)
 
 if __name__  == '__main__':
-    tes = coba()
-
-    threading.Thread(target=tes.tambahx, args='1').start()
-    threading.Thread(target=tes.tambahy, args='2').start()
-
-    while 1:
-        print('hokya')
-        time.sleep(1)
+    data = []
+    for i in range(50):
+        data.append(randrange(100))
+    print(plt.style.available)
+    plt.style.use('_classic_test')
+    plt.plot(data, 'r')
+    plt.xlabel('time (ms)')
+    plt.ylabel('CPU (%)')
+    plt.title('CPU Usage of Mining')
+    plt.grid(True)
+    plt.show()
