@@ -17,15 +17,33 @@ class coba:
             time.sleep(1)
             print(total)
 
+    def mean(self, list):
+        jumlah = sum(list)
+        total = len(list)
+        return float(jumlah/total)
+
 if __name__  == '__main__':
-    data = []
-    for i in range(50):
-        data.append(randrange(100))
-    print(plt.style.available)
-    plt.style.use('_classic_test')
-    plt.plot(data, 'r')
-    plt.xlabel('time (ms)')
-    plt.ylabel('CPU (%)')
-    plt.title('CPU Usage of Mining')
-    plt.grid(True)
-    plt.show()
+    # c = coba()
+    # data = [5]
+    # print(data[-1])
+
+    fig = plt.figure()
+
+
+    for x in range(3):
+        data = []
+        for i in range(50):
+            data.append(randrange(100))
+        print(plt.style.available)
+        plt.style.use('classic')
+        plt.plot(data, 'r', label = 'asd')
+        plt.xlabel('time (ms)')
+        plt.ylabel('CPU (%)')
+        plt.title('CPU Usage of Mining')
+        plt.legend()
+        # plt.tight_layout()
+        plt.grid(True)
+        namefig = 'CPU usage of mining ' + str(x)
+        plt.savefig(namefig)
+        fig.clear()
+        # plt.show()

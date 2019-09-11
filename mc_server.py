@@ -2,8 +2,8 @@ import socket, sys, datetime, time
 from multichain import Multichain
 import threading
 
-TCP_IP = '10.130.51.237'
-# TCP_IP = '127.0.0.1' #localhost
+# TCP_IP = '10.130.56.147'
+TCP_IP = '127.0.0.1' #localhost
 TCP_PORT = 8889
 TCP_PORT_IOT = 9999
 BUFFER_SIZE = 1024
@@ -38,6 +38,7 @@ class McServer:
             print ('Could Not Start Server Thread. Error Code : '+ str(msg[0]) + ' Message ' + msg[1])
             sys.exit()
 
+    # method untuk mengirim perintah ke semua client multichain
     def broadcast(self, msg):
         for sock in self.CLIENTS:
             try :
@@ -102,15 +103,20 @@ if __name__ == '__main__' :
                     # print('pesan asli:', true_msg)
 
                     if true_msg == 'printlen':
-                        Chain1.CPU.lenCPU()
+                        serv.broadcast('printlen')
+                        # Chain1.CPU.lenCPU()
 
                     elif true_msg == 'print':
                         serv.broadcast('print')
-                        Chain1.CPU.printCpuUsage()
+                        # Chain1.CPU.printCpuUsage()
 
                     elif true_msg == 'prints':
                         Chain1.CPU.printCpuUsage('search')
 
+                    elif true_msg == 'save':
+                        serv.broadcast('save')
+                        print('saving figures')
+                        Chain1.CPU.printCpuUsage('search', True)
 
                     elif true_msg[:6] == 'search':
                         Chain1.searchItem('stream1',int(true_msg[6:7]))

@@ -148,9 +148,10 @@ class Multichain:
 
         proses = ''
 
-        while self.CPU.is_mining == True:
+        while True:
             if self.CPU.is_mining == False:
                 proses = 'done'
+                break
 
         return proses
 

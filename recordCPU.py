@@ -8,6 +8,8 @@ class RecordCPU:
         self.is_mining = False
         self.record_cpu = False
         self.search_results = []
+        self.mean_publish = []
+        self.mean_search = []
 
     def recordCpuUsage(self, opt = 'publish'):
         while self.is_mining:
@@ -20,28 +22,75 @@ class RecordCPU:
             if len(temp) != 0:
                 if opt == 'publish':
                     self.cpu_usage_publish.append(temp)
+                    print('selesai append ke list')
                 elif opt == 'search':
                     self.cpu_usage_search.append(temp)
 
-    def printCpuUsage(self, opt = 'publish'):
+        if self.is_mining == False and opt == 'publish':
+            self.mean_publish.append(self.countMean(self.cpu_usage_publish[-1]))
+
+        if self.is_mining == False and opt == 'search':
+            self.mean_search.append(self.countMean(self.cpu_usage_search[-1]))
+
+        print('mining doneeeee')
+
+    def countMean(self, list):
+        jumlah = sum(list)
+        total = len(list)
+
+        return float(jumlah/total)
+
+    def printCpuUsage(self, opt = 'publish', savefig = False):
+        fig = plt.figure()
         if opt == 'publish':
             if len(self.cpu_usage_publish) != 0:
                 for i in range(len(self.cpu_usage_publish)):
-                    plt.style.use('_classic_test')
-                    plt.plot(self.cpu_usage_publish[i], 'r')
+                    global temp
+                    temp = []
+                    for x in range(len(self.cpu_usage_publish[i])):
+                        temp.append(self.mean_publish[i])
+
+                    plt.style.use('classic')
+                    plt.plot(self.cpu_usage_publish[i], color ='r', label = 'CPU usage')
+                    plt.plot(temp, color = 'g', label = 'nilai rata-rata')
+                    temp = []
                     plt.xlabel('time (ms)')
                     plt.ylabel('CPU (%)')
                     plt.title('CPU Usage of Mining')
+                    plt.legend()
                     plt.grid(True)
-                    plt.show()
+                    if savefig:
+                        namefig = 'CPU usage of mining ' + str(i)
+                        plt.savefig(namefig)
+                        fig.clear()
+                    else:
+                        plt.show()
             else:
                 print('data belum ada')
 
+        #terakhir ngerjakno save figure
         elif opt == 'search':
             if len(self.cpu_usage_search) != 0:
+                temp = []
                 for i in range(len(self.cpu_usage_search)):
-                    plt.plot(self.cpu_usage_search[i], 'r--')
-                    plt.show()
+                    for x in range(len(self.cpu_usage_search[i])):
+                        temp.append(self.mean_search[i])
+
+                    plt.style.use('classic')
+                    plt.plot(self.cpu_usage_search[i], color='r', label='CPU usage')
+                    plt.plot(temp, color='g', label='nilai rata-rata')
+                    temp = []
+                    plt.xlabel('time (ms)')
+                    plt.ylabel('CPU (%)')
+                    plt.title('CPU Usage of Search')
+                    plt.legend()
+                    plt.grid(True)
+
+                    if savefig:
+                        namefig = 'CPU usage of search' + str(i)
+                        plt.savefig(namefig)
+                    else:
+                        plt.show()
             else:
                 print('data belum ada')
         else:
