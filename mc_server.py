@@ -2,8 +2,8 @@ import socket, sys, datetime, time
 from multichain import Multichain
 import threading
 
-# TCP_IP = '10.130.56.147'
-TCP_IP = '127.0.0.1' #localhost
+TCP_IP = '10.130.59.215'
+# TCP_IP = '127.0.0.1' #localhost
 TCP_PORT = 8889
 TCP_PORT_IOT = 9999
 BUFFER_SIZE = 1024
@@ -104,11 +104,11 @@ if __name__ == '__main__' :
 
                     if true_msg == 'printlen':
                         serv.broadcast('printlen')
-                        # Chain1.CPU.lenCPU()
+                        Chain1.CPU.lenCPU()
 
                     elif true_msg == 'print':
                         serv.broadcast('print')
-                        # Chain1.CPU.printCpuUsage()
+                        Chain1.CPU.printCpuUsage()
 
                     elif true_msg == 'prints':
                         Chain1.CPU.printCpuUsage('search')
@@ -116,6 +116,7 @@ if __name__ == '__main__' :
                     elif true_msg == 'save':
                         serv.broadcast('save')
                         print('saving figures')
+                        Chain1.CPU.printCpuUsage('publish', True)
                         Chain1.CPU.printCpuUsage('search', True)
 
                     elif true_msg[:6] == 'search':

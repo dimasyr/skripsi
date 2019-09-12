@@ -1,6 +1,7 @@
 import threading, time
 import matplotlib.pyplot as plt
 from random import randrange
+from matplotlib.font_manager import FontProperties
 
 class coba:
     def tambahx(self, x):
@@ -29,6 +30,8 @@ if __name__  == '__main__':
 
     fig = plt.figure()
 
+    fontP = FontProperties()
+    fontP.set_size('small')
 
     for x in range(3):
         data = []
@@ -40,10 +43,10 @@ if __name__  == '__main__':
         plt.xlabel('time (ms)')
         plt.ylabel('CPU (%)')
         plt.title('CPU Usage of Mining')
-        plt.legend()
+        plt.legend(loc = 3, prop = fontP)
         # plt.tight_layout()
         plt.grid(True)
         namefig = 'CPU usage of mining ' + str(x)
-        plt.savefig(namefig)
-        fig.clear()
-        # plt.show()
+        # plt.savefig(namefig)
+        # fig.clear()
+        plt.show()

@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b72a9e98-d737-4314-8d88-d441bd008e92" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/coba2.py" beforeDir="false" afterPath="$PROJECT_DIR$/coba2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cpu.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iot_device.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot_device.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/mc_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multichain.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/multichain.py" beforeDir="false" afterPath="$PROJECT_DIR$/multichain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recordCPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/recordCPU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcp_server.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mc_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+            <state>
+              <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -38,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mc_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="178" column="33" lean-forward="true" selection-start-line="178" selection-start-column="33" selection-end-line="178" selection-end-column="33" />
+            <state relative-caret-position="255">
+              <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -50,12 +44,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/multichain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="141" column="34" lean-forward="true" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
+            <state relative-caret-position="-1343">
+              <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
                 <element signature="e#782#917#0" />
-                <element signature="e#1062#1462#0" />
               </folding>
             </state>
           </provider>
@@ -64,21 +57,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recordCPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="68">
+              <caret line="75" column="29" lean-forward="true" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#1062#1142#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/coba2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="90">
+              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -89,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/iot_device.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+            <state relative-caret-position="34">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -126,12 +118,13 @@
         <option value="$PROJECT_DIR$/tcp_server.py" />
         <option value="$PROJECT_DIR$/tcp_client.py" />
         <option value="$PROJECT_DIR$/RecordCPU.py" />
-        <option value="$PROJECT_DIR$/multichain.py" />
-        <option value="$PROJECT_DIR$/iot_device.py" />
-        <option value="$PROJECT_DIR$/coba2.py" />
-        <option value="$PROJECT_DIR$/mc_server.py" />
-        <option value="$PROJECT_DIR$/recordCPU.py" />
         <option value="$PROJECT_DIR$/mc_client.py" />
+        <option value="$PROJECT_DIR$/iot_device.py" />
+        <option value="$PROJECT_DIR$/mc_server.py" />
+        <option value="$PROJECT_DIR$/multichain.py" />
+        <option value="$PROJECT_DIR$/recordCPU.py" />
+        <option value="$PROJECT_DIR$/cobagui.py" />
+        <option value="$PROJECT_DIR$/coba2.py" />
       </list>
     </option>
   </component>
@@ -176,7 +169,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mc_server">
+  <component name="RunManager" selected="Python.coba2">
     <configuration name="coba2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="skripsiku" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,6 +183,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/coba2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cobagui" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="skripsiku" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cobagui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -261,34 +275,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="udp_client" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="skripsiku" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Dimas\PycharmProjects\skripsiku\mc_client.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.mc_client" />
+        <item itemvalue="Python.coba2" />
+        <item itemvalue="Python.cobagui" />
         <item itemvalue="Python.iot_device" />
         <item itemvalue="Python.mc_server" />
-        <item itemvalue="Python.coba2" />
-        <item itemvalue="Python.udp_client" />
+        <item itemvalue="Python.mc_client" />
       </list>
     </recent_temporary>
   </component>
@@ -307,9 +300,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46791443" visible="true" weight="0.122023806" />
-      <window_info id="Structure" order="1" sideWeight="0.53208554" side_tool="true" visible="true" weight="0.122023806" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46524063" visible="true" weight="0.122023806" />
+      <window_info id="Structure" order="1" sideWeight="0.53475934" side_tool="true" visible="true" weight="0.122023806" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -330,48 +324,39 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cpu.py" />
     <entry file="file://$PROJECT_DIR$/tcp_server.py" />
+    <entry file="file://$PROJECT_DIR$/CPU usage of mining0.png" />
+    <entry file="file://$PROJECT_DIR$/CPU usage of mining 3.png" />
+    <entry file="file://$PROJECT_DIR$/CPU usage of mining 4.png" />
+    <entry file="file://$PROJECT_DIR$/CPU usage of mining 2.png" />
+    <entry file="file://$PROJECT_DIR$/CPU usage of mining 1.png" />
+    <entry file="file://$PROJECT_DIR$/CPU usage of mining 0.png" />
+    <entry file="file://$PROJECT_DIR$/mc_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/iot_device.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPU usage of mining0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPU usage of mining 3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPU usage of mining 4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPU usage of mining 2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPU usage of mining 1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPU usage of mining 0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coba2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/cobagui.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mc_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="178" column="33" lean-forward="true" selection-start-line="178" selection-start-column="33" selection-end-line="178" selection-end-column="33" />
+        <state relative-caret-position="255">
+          <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
@@ -380,33 +365,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/multichain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="141" column="34" lean-forward="true" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
+        <state relative-caret-position="-1343">
+          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
             <element signature="e#782#917#0" />
-            <element signature="e#1062#1462#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/recordCPU.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="68">
+          <caret line="75" column="29" lean-forward="true" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1062#1142#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mc_client.py">
+    <entry file="file://$PROJECT_DIR$/coba2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        <state relative-caret-position="90">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>

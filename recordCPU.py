@@ -1,5 +1,6 @@
 import psutil
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
 
 class RecordCPU:
     def __init__(self):
@@ -10,6 +11,9 @@ class RecordCPU:
         self.search_results = []
         self.mean_publish = []
         self.mean_search = []
+        self.fontP = FontProperties()
+
+        self.fontP.set_size('small')
 
     def recordCpuUsage(self, opt = 'publish'):
         while self.is_mining:
@@ -42,6 +46,7 @@ class RecordCPU:
 
     def printCpuUsage(self, opt = 'publish', savefig = False):
         fig = plt.figure()
+
         if opt == 'publish':
             if len(self.cpu_usage_publish) != 0:
                 for i in range(len(self.cpu_usage_publish)):
@@ -57,7 +62,7 @@ class RecordCPU:
                     plt.xlabel('time (ms)')
                     plt.ylabel('CPU (%)')
                     plt.title('CPU Usage of Mining')
-                    plt.legend()
+                    plt.legend(loc = 3, prop = self.fontP)
                     plt.grid(True)
                     if savefig:
                         namefig = 'CPU usage of mining ' + str(i)
@@ -83,7 +88,7 @@ class RecordCPU:
                     plt.xlabel('time (ms)')
                     plt.ylabel('CPU (%)')
                     plt.title('CPU Usage of Search')
-                    plt.legend()
+                    plt.legend(loc = 3, prop = self.fontP)
                     plt.grid(True)
 
                     if savefig:

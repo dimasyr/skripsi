@@ -69,6 +69,7 @@ class Multichain:
 
         self.CPU.is_mining = True
         self.CPU.record_cpu = True
+
         threading.Thread(target = record).start()
         time.sleep(3)
         threading.Thread(target = search).start()
@@ -76,8 +77,6 @@ class Multichain:
         time.sleep(3)
         self.CPU.is_mining = False
         self.CPU.record_cpu = False
-
-        print(self.CPU.search_results)
 
     # belum selesai (untuk melihat detail item)
     def getStreamItems(self, stream, num):
