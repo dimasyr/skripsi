@@ -1,9 +1,9 @@
 import socket, datetime, time
 import random, string, sys
 
-TCP_IP = '10.130.59.215'
+TCP_IP = '10.60.101.126'
 # TCP_IP = '127.0.0.1' #localhost
-TCP_PORT_IOT = 9999
+TCP_PORT_IOT = 9990
 
 HEADERSIZE = 7
 

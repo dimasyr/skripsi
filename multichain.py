@@ -99,7 +99,7 @@ class Multichain:
         '''
         return self.api.getstreaminfo(stream)
 
-    #         param opt1 (print data), opt (print confirmations)
+    # param opt1 (print data), opt (print confirmations)
     def printData(self, items, data = False, confirm = False, txid = False, all = True):
         '''
 
@@ -111,7 +111,7 @@ class Multichain:
         total_item = len(items)
         for x in range(total_item):
             if data :
-                print(bytes.fromhex(items[x]['data']).decode('utf-8'))
+                print(x, bytes.fromhex(items[x]['data']).decode('utf-8'))
                 all = False
             if confirm :
                 print(items[x]['confirmations'], '\n')
@@ -194,16 +194,21 @@ class Multichain:
         print('Stream last item confirmations : ' + str(items[0]['confirmations']))
         print('Waktu mining = ' + str(mining_time))
 
-# if __name__ == '__main__':
-#     Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF6f', 'localhost', '7172', 'chain1')
+if __name__ == '__main__':
+    Chain1 = Multichain('multichainrpc', '8Sa4fyWi1n4JL5BWGc4GJBU6XjfGZmQPHS25gVnjqy1i', 'localhost', '7406', 'dyr')
 
-    # items = Chain1.listStreamItems('stream1', 12)
-    #
-    # for i in range(len(items)):
-    #     print(items[i]['data'])
+    items = Chain1.listStreamItems('stream1', 10)
+    Chain1.printData(items, True)
+    print('\n')
+    for i in range(len(items)):
+        miner = Chain1.getMiner(items[i]['txid'])
+        print(i, miner)
 
-    # miner = Chain1.getMiner(items[0]['txid'])
+    # miner = Chain1.getMiner(items[1]['txid'])
     # print(miner)
-
-    # Chain1.printData(items, True)
-    # print(items[0]['data'])
+    #
+    # miner = Chain1.getMiner(items[2]['txid'])
+    # print(miner)
+    #
+    # miner = Chain1.getMiner(items[3]['txid'])
+    # print(miner)

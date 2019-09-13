@@ -2,10 +2,10 @@ import socket, sys, datetime, time
 from multichain import Multichain
 import threading
 
-TCP_IP = '10.130.59.215'
+TCP_IP = '10.60.101.126'
 # TCP_IP = '127.0.0.1' #localhost
-TCP_PORT = 8889
-TCP_PORT_IOT = 9999
+TCP_PORT = 8881
+TCP_PORT_IOT = 9990
 BUFFER_SIZE = 1024
 
 HEADERSIZE = 7
@@ -56,7 +56,7 @@ if __name__ == '__main__' :
     threading.Thread(target=serv.startServer).start()
 
     # connect to chain1
-    Chain1 = Multichain('multichainrpc', '44hCoTauwmQTSxtvQ9au99QqzjBs6pkPriqayqjYqF6f', 'localhost', '7172', 'chain1')
+    Chain1 = Multichain('multichainrpc', '8Sa4fyWi1n4JL5BWGc4GJBU6XjfGZmQPHS25gVnjqy1i', 'localhost', '7406', 'dyr')
 
     # create tcp/ip socket for iot
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

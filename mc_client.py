@@ -4,8 +4,8 @@ from recordCPU import RecordCPU
 
 if __name__ == '__main__':
 
-    # TCP_IP = '10.130.56.147'
-    TCP_IP = '127.0.0.1'  # localhost
+    TCP_IP = '10.130.59.215'
+    # TCP_IP = '127.0.0.1'  # localhost
     TCP_PORT = 8889
     BUFFER_SIZE = 1024
     server_address = (TCP_IP, TCP_PORT)
