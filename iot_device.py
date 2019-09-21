@@ -1,9 +1,9 @@
-import socket, datetime, time
+import socket, time
 import random, string, sys
 
-TCP_IP = '10.60.101.126'
-# TCP_IP = '127.0.0.1' #localhost
-TCP_PORT_IOT = 9990
+# TCP_IP = '10.60.101.126'
+TCP_IP = '127.0.0.1' #localhost
+TCP_PORT_IOT = 8882
 
 HEADERSIZE = 7
 
@@ -20,12 +20,27 @@ sock.connect(server_address)
 
 msg = ''
 
+iot = False
+
 try:
+    # iot mode
+    if iot == True:
+        for i in range(5):
+            # 4 (33 bytes) 52 (129 bytes)
+            hex_msg = hexlify(''.join([random.choice(string.ascii_letters) for _ in range(4)]))
+            hex_msg2 = f'{len(hex_msg):<{HEADERSIZE}}' + hex_msg
+
+            print('data hexa:', hex_msg, '\n')
+            print('ukuran data:', sys.getsizeof(hex_msg), 'bytes')
+
+            sock.sendall(hex_msg2.encode())
+
+            time.sleep(30)
+
     # chat mode
     # 'end' untuk mengakhiri
     while msg != 'end':
         msg = input("Kirim pesan: ")
-        # 27 bytes (a), 101 bytes (38), 501 bytes (238)
         if msg != '' and msg != 'end':
             try:
                 # random msg with number input
@@ -37,22 +52,12 @@ try:
 
             print('ukuran pesan asli:', sys.getsizeof(msg), 'bytes')
             hex_msg2 = f'{len(hex_msg):<{HEADERSIZE}}' + hex_msg
-            print('ukuran pesan setelah di hexlify:', sys.getsizeof(hex_msg), 'bytes')
+            print('ukuran pesan setelah menjadi hexa:', sys.getsizeof(hex_msg), 'bytes')
             print('hex msg:',hex_msg,'\n')
-            # now = datetime.datetime.now()
-            # print(now.strftime("%Y-%m-%d %H:%M:%S"))
+
             sock.sendall(hex_msg2.encode())
         else:
             sock.sendall(msg.encode())
-
-    # # iot mode
-    # while True:
-    #     hex_msg = hexlify(''.join([random.choice(string.ascii_letters) for _ in range(1)]))
-    #     print(hex_msg,'\n')
-    #     now = datetime.datetime.now()
-    #     print(now.strftime("%Y-%m-%d %H:%M:%S"))
-    #     sock.sendall(hex_msg.encode())
-    #     time.sleep(3)
 
 finally:
     print('closing socket')

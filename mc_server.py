@@ -1,11 +1,11 @@
-import socket, sys, datetime, time
+import socket, sys, time
 from multichain import Multichain
 import threading
 
-TCP_IP = '10.60.101.126'
-# TCP_IP = '127.0.0.1' #localhost
+# TCP_IP = '10.60.101.126'
+TCP_IP = '127.0.0.1' #localhost
 TCP_PORT = 8881
-TCP_PORT_IOT = 9990
+TCP_PORT_IOT = 8882
 BUFFER_SIZE = 1024
 
 HEADERSIZE = 7
@@ -56,7 +56,7 @@ if __name__ == '__main__' :
     threading.Thread(target=serv.startServer).start()
 
     # connect to chain1
-    Chain1 = Multichain('multichainrpc', '8Sa4fyWi1n4JL5BWGc4GJBU6XjfGZmQPHS25gVnjqy1i', 'localhost', '7406', 'dyr')
+    Chain1 = Multichain('multichainrpc', 'A4VZcuwWrn36bGCZLrJ5dgg1QUw6CTPPq8fu5jZfQPNc', 'localhost', '7190', 'dyr')
 
     # create tcp/ip socket for iot
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -68,13 +68,11 @@ if __name__ == '__main__' :
 
     sock.bind(server_address)
 
-    # listen for incoming transmission
+    # listen for incoming iot transmission
     sock.listen(1)
-    print('menunggu koneksi')
+    print('menunggu koneksi perangkat IoT')
     client_socket, client_address = sock.accept()
-    print(f'berhasil terhubung dengan {client_address}')
-
-    # count = 0
+    print(f'berhasil terhubung dengan perangkat IoT {client_address}')
 
     msg = ''
 
@@ -119,60 +117,36 @@ if __name__ == '__main__' :
                         Chain1.CPU.printCpuUsage('publish', True)
                         Chain1.CPU.printCpuUsage('search', True)
 
+                    elif true_msg == 'savedata':
+                        Chain1.CPU.saveData()
+                        print('File saved.')
+
+                    elif true_msg == 'readdata':
+                        Chain1.CPU.readData()
+                        print('Done reading.')
+
                     elif true_msg[:6] == 'search':
                         Chain1.searchItem('stream1',int(true_msg[6:7]))
 
                     elif true_msg != 'end' and true_msg!= '':
-                        print('data in hexa')
-                        print(hex_msg)
-                        print('teks asli')
-                        print(true_msg, '\n')
+                        print('\ndata hexa:' , hex_msg)
+                        print('teks asli:', true_msg)
+
                         serv.broadcast('mine')
 
                         proses = Chain1.publishStream('stream1', 'key1', hex_msg)
 
-                        print('proses :',proses)
+                        # print('proses :',proses)
 
                         if proses == 'done':
                             serv.broadcast('done')
-                            print('broadcast done')
+                            # print('broadcast done')
 
                     new_msg = True
                     full_msg = ''
 
             else:
                 msg = full_msg
-
-        # while msg != 'end':
-        #     #   receive the data in bytes
-        #     data = client_socket.recv(4096)
-        #
-        #     #   convert bytes to hex string
-        #     data_decode = data.decode()
-        #
-        #     #   hex to string
-        #     data_asli = bytes.fromhex(data_decode).decode('utf-8')
-        #
-            # if data_asli == 'printlen':
-            #     Chain1.lenCPU()
-            #     print(Chain1.cpu_usage)
-            # elif data_asli == 'print':
-            #     Chain1.printCpuUsage()
-            # elif data_asli != 'end' and data_asli != '':
-            #     now = datetime.datetime.now()
-            #     print('waktu =', now.strftime("%Y-%m-%d %H:%M:%S"))
-            #     print('bytes')
-            #     print(data)
-            #     print('string')
-            #     print(data_decode)
-            #     print('teks asli')
-            #     print(data_asli, '\n')
-            #     Chain1.publishStream('stream1', 'key1', data_decode)
-        #
-        #         msg = data_asli
-        #     else:
-        #         msg = data_asli
-        #         print(msg)
 
     finally:
         #   Clean up the connection

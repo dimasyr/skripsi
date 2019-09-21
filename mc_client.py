@@ -4,8 +4,8 @@ from recordCPU import RecordCPU
 
 if __name__ == '__main__':
 
-    TCP_IP = '10.130.59.215'
-    # TCP_IP = '127.0.0.1'  # localhost
+    # TCP_IP = '10.130.59.215'
+    TCP_IP = '127.0.0.1'  # localhost
     TCP_PORT = 8889
     BUFFER_SIZE = 1024
     server_address = (TCP_IP, TCP_PORT)
@@ -35,14 +35,17 @@ if __name__ == '__main__':
                 CPU.record_cpu = False
                 print('done mining.')
 
+        # print grafik cpu usage
         elif(msg == 'print'):
             print('print')
             CPU.printCpuUsage()
 
+        # print panjang list cpu
         elif (msg == 'printlen'):
             print('printlen')
             CPU.lenCPU()
 
+        # menyimpan grafik cpu
         elif(msg == 'save'):
             print('saving figures')
             CPU.printCpuUsage('publish',True)

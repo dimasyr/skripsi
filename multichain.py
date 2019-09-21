@@ -1,5 +1,5 @@
 from Savoir import Savoir
-import time
+import time as t
 import threading
 from recordCPU import RecordCPU
 
@@ -47,6 +47,7 @@ class Multichain:
         :param num:
         :return:
         '''
+        start = t.time()
 
         if num == 0:
             items = self.api.liststreamitems(stream)
@@ -55,8 +56,16 @@ class Multichain:
             items = items[-num:]
 
         if(isSearch):
+            end = t.time()
+            t.sleep(3)
+            self.CPU.is_mining = False
+            self.CPU.record_cpu = False
+
             self.CPU.search_results = items
+            time = end - start
+            print('Waktu pencarian' + str(round(time,2)))
             print(self.CPU.search_results)
+
         else:
             return items
 
@@ -71,12 +80,9 @@ class Multichain:
         self.CPU.record_cpu = True
 
         threading.Thread(target = record).start()
-        time.sleep(3)
+        t.sleep(3)
         threading.Thread(target = search).start()
 
-        time.sleep(3)
-        self.CPU.is_mining = False
-        self.CPU.record_cpu = False
 
     # belum selesai (untuk melihat detail item)
     def getStreamItems(self, stream, num):
@@ -141,7 +147,7 @@ class Multichain:
         self.CPU.record_cpu = True
 
         threading.Thread(target = record).start()
-        time.sleep(3)
+        t.sleep(3)
         self.api.publish(stream, key, data)
         threading.Thread(target = streamData).start()
 
@@ -172,37 +178,38 @@ class Multichain:
             items = self.listStreamItems(stream, 1)
 
         # waktu awal item terakhir (terbaru) masuk ke dalam stream
-        start = time.time()
+        start = t.time()
 
-        print('\nStream last item data = ' + str(items[0]['data']))
-        print('Stream last item confirmations = ' + str(items[0]['confirmations']))
+        print('\nStream last item data : ' + str(items[0]['data']))
+        print('Stream last item confirmations : ' + str(items[0]['confirmations']))
 
         # mengecek item terakhir (terbaru) apakah sudah di mining
         while (items[0]['confirmations'] == 0):
             items = self.listStreamItems(stream, 1)
 
         # waktu saat item terakhir (terbaru) sudah di mining
-        end = time.time()
-        time.sleep(3)
+        end = t.time()
+        t.sleep(5)
+
         self.CPU.record_cpu = False
         self.CPU.is_mining = False
 
         # mendapatkan durasi proses mining
         mining_time = end - start
 
-        print('\nStream last item data = ' + str(items[0]['data']))
+        print('\nStream last item data : ' + str(items[0]['data']))
         print('Stream last item confirmations : ' + str(items[0]['confirmations']))
         print('Waktu mining = ' + str(mining_time))
 
-if __name__ == '__main__':
-    Chain1 = Multichain('multichainrpc', '8Sa4fyWi1n4JL5BWGc4GJBU6XjfGZmQPHS25gVnjqy1i', 'localhost', '7406', 'dyr')
-
-    items = Chain1.listStreamItems('stream1', 10)
-    Chain1.printData(items, True)
-    print('\n')
-    for i in range(len(items)):
-        miner = Chain1.getMiner(items[i]['txid'])
-        print(i, miner)
+# if __name__ == '__main__':
+#     Chain1 = Multichain('multichainrpc', 'A4VZcuwWrn36bGCZLrJ5dgg1QUw6CTPPq8fu5jZfQPNc', 'localhost', '7190', 'dyr')
+#
+#     items = Chain1.listStreamItems('stream1', 10)
+#     Chain1.printData(items, True)
+#     print('\n')
+#     for i in range(len(items)):
+#         miner = Chain1.getMiner(items[i]['txid'])
+#         print(i, miner)
 
     # miner = Chain1.getMiner(items[1]['txid'])
     # print(miner)
