@@ -1,7 +1,6 @@
 import socket
 import threading
 from recordCPU import RecordCPU
-from multichain import Multichain
 
 if __name__ == '__main__':
 
@@ -16,8 +15,6 @@ if __name__ == '__main__':
     client_socket.connect(server_address)
 
     CPU = RecordCPU()
-    MC = Multichain()
-    # cl = Client()
 
     while True:
         #wait for server commands/message
@@ -53,14 +50,17 @@ if __name__ == '__main__':
             CPU.printCpuUsage('search', True)
             print('figures saved')
 
+        # menyimpan ke file biner
         elif msg== 'savedata':
             CPU.saveData()
             print('File saved.')
 
+        # membaca file biner
         elif msg == 'readdata':
             CPU.readData()
             print('Done reading.')
 
+        # menyimpan list miner
         elif msg == 'savelistminer':
             CPU.saveListMiner()
             print('List miner saved.')
