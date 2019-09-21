@@ -4,8 +4,11 @@ from recordCPU import RecordCPU
 
 if __name__ == '__main__':
 
-    # TCP_IP = '10.130.59.215'
-    TCP_IP = '127.0.0.1'  # localhost
+    # TCP_IP = '10.60.101.137'
+
+    # ip localhost
+    TCP_IP = '127.0.0.1'
+
     TCP_PORT = 8881
     BUFFER_SIZE = 1024
     server_address = (TCP_IP, TCP_PORT)
@@ -59,3 +62,7 @@ if __name__ == '__main__':
         elif msg == 'readdata':
             CPU.readData()
             print('Done reading.')
+
+        # mmendapatkan nilai rata2 akhir
+        elif msg == 'getfinalmean':
+            CPU.getFinalMean()

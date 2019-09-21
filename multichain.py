@@ -59,6 +59,7 @@ class Multichain:
 
             self.CPU.search_results = items
             time = end - start
+            self.CPU.search_time.append(round(time,2))
             print('Waktu pencarian' + str(round(time,2)))
             print(self.CPU.search_results)
 
@@ -194,6 +195,7 @@ class Multichain:
 
         # mendapatkan durasi proses mining
         mining_time = end - start
+        self.CPU.publish_time.append(round(mining_time,2))
 
         print('\nStream last item data : ' + str(items[0]['data']))
         print('Stream last item confirmations : ' + str(items[0]['confirmations']))
@@ -208,12 +210,12 @@ class Multichain:
 #     for i in range(len(items)):
 #         miner = Chain1.getMiner(items[i]['txid'])
 #         print(i, miner)
-
-    # miner = Chain1.getMiner(items[1]['txid'])
-    # print(miner)
-    #
-    # miner = Chain1.getMiner(items[2]['txid'])
-    # print(miner)
-    #
-    # miner = Chain1.getMiner(items[3]['txid'])
-    # print(miner)
+#
+#     miner = Chain1.getMiner(items[1]['txid'])
+#     print(miner)
+#
+#     miner = Chain1.getMiner(items[2]['txid'])
+#     print(miner)
+#
+#     miner = Chain1.getMiner(items[3]['txid'])
+#     print(miner)

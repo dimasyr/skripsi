@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b72a9e98-d737-4314-8d88-d441bd008e92" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu_usage_publish/CPU usage of mining 9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot_device.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot_device.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list miner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/list miner.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/mc_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multichain.py" beforeDir="false" afterPath="$PROJECT_DIR$/multichain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recordCPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/recordCPU.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabel penelitian skripsi.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/tabel penelitian skripsi.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mc_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+            <state relative-caret-position="285">
+              <caret line="67" column="28" lean-forward="true" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -29,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mc_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="129" column="53" selection-start-line="129" selection-start-column="53" selection-end-line="129" selection-end-column="53" />
+            <state relative-caret-position="285">
+              <caret line="139" column="41" lean-forward="true" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -41,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/multichain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+            <state relative-caret-position="221">
+              <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -50,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iot_device.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="40">
+              <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -62,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recordCPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+            <state relative-caret-position="106">
+              <caret line="63" column="64" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -84,6 +99,7 @@
     <findStrings>
       <find>print</find>
       <find>search</find>
+      <find>waktu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,11 +119,11 @@
         <option value="$PROJECT_DIR$/cobagui.py" />
         <option value="$PROJECT_DIR$/coba2.py" />
         <option value="$PROJECT_DIR$/coba_flask.py" />
+        <option value="$PROJECT_DIR$/mc_server.py" />
+        <option value="$PROJECT_DIR$/mc_client.py" />
         <option value="$PROJECT_DIR$/iot_device.py" />
         <option value="$PROJECT_DIR$/recordCPU.py" />
         <option value="$PROJECT_DIR$/multichain.py" />
-        <option value="$PROJECT_DIR$/mc_server.py" />
-        <option value="$PROJECT_DIR$/mc_client.py" />
       </list>
     </option>
   </component>
@@ -152,7 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mc_server">
+  <component name="RunManager" selected="Python.iot_device">
     <configuration name="coba_flask" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="skripsiku" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -262,9 +278,9 @@
       <list>
         <item itemvalue="Python.iot_device" />
         <item itemvalue="Python.mc_server" />
+        <item itemvalue="Python.multichain" />
         <item itemvalue="Python.recordCPU" />
         <item itemvalue="Python.coba_flask" />
-        <item itemvalue="Python.multichain" />
       </list>
     </recent_temporary>
   </component>
@@ -283,10 +299,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.44332492" visible="true" weight="0.122023806" />
-      <window_info id="Structure" order="1" sideWeight="0.5566751" side_tool="true" visible="true" weight="0.122023806" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.44080603" visible="true" weight="0.122023806" />
+      <window_info id="Structure" order="1" sideWeight="0.55919397" side_tool="true" weight="0.122023806" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -341,35 +356,18 @@
     <entry file="file://$PROJECT_DIR$/coba_flask.py" />
     <entry file="file://$PROJECT_DIR$/recordCPU.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+        <state relative-caret-position="106">
+          <caret line="63" column="64" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iot_device.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multichain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mc_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="129" column="53" selection-start-line="129" selection-start-column="53" selection-end-line="129" selection-end-column="53" />
+        <state relative-caret-position="285">
+          <caret line="139" column="41" lean-forward="true" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -378,11 +376,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mc_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+        <state relative-caret-position="285">
+          <caret line="67" column="28" lean-forward="true" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multichain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iot_device.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
         </state>
       </provider>
     </entry>

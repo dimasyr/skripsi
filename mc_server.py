@@ -2,8 +2,10 @@ import socket, sys, time
 from multichain import Multichain
 import threading
 
-TCP_IP = '10.60.101.137'
-# TCP_IP = '127.0.0.1' #localhost
+# TCP_IP = '10.60.101.137'
+
+# ip localhost
+TCP_IP = '127.0.0.1'
 TCP_PORT = 8881
 TCP_PORT_IOT = 8882
 BUFFER_SIZE = 1024
@@ -111,6 +113,10 @@ if __name__ == '__main__' :
                     elif true_msg == 'prints':
                         Chain1.CPU.printCpuUsage('search')
 
+                    elif true_msg == 'getfinalmean':
+                        serv.broadcast('getfinalmean')
+                        Chain1.CPU.getFinalMean()
+
                     elif true_msg == 'save':
                         serv.broadcast('save')
                         Chain1.CPU.printCpuUsage('publish', True)
@@ -127,10 +133,6 @@ if __name__ == '__main__' :
                         Chain1.CPU.readData()
                         print('Done reading.')
 
-                    elif true_msg == 'savelistminer':
-                        Chain1.CPU.saveListMiner()
-                        print('List miner saved.')
-
                     elif true_msg[:6] == 'search':
                         Chain1.searchItem('stream1',int(true_msg[6:7]))
 
@@ -142,7 +144,7 @@ if __name__ == '__main__' :
 
                         proses = Chain1.publishStream('stream1', 'key1', hex_msg)
 
-                        print('proses :', proses)
+                        print('\nproses :', proses)
 
                         # memberi tahu client mining selesai
                         if proses == 'done':

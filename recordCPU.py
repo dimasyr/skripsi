@@ -7,15 +7,22 @@ class RecordCPU:
     def __init__(self):
         self.cpu_usage_publish = []
         self.cpu_usage_search = []
+		
         self.is_mining = False
         self.record_cpu = False
         self.search_results = []
         self.mean_publish = []
         self.mean_search = []
         self.list_miner = []
+        self.publish_time = []
+        self.search_time = []
         self.fontP = FontProperties()
-
         self.fontP.set_size('small')
+        self.final_mean_publish = []
+        self.final_mean_search = []
+        self.final_publish_time = []
+        self.final_search_time = []
+		
 
     # merekam data penggunaan CPU
     def recordCpuUsage(self, opt = 'publish'):
@@ -24,7 +31,7 @@ class RecordCPU:
             temp = []
 
             while self.record_cpu:
-                temp.append(psutil.cpu_percent(0.1))
+                temp.append(round(psutil.cpu_percent(0.1),2))
 
             if len(temp) != 0:
                 if opt == 'publish':
@@ -48,7 +55,13 @@ class RecordCPU:
         jumlah = sum(list)
         total = len(list)
 
-        return float(jumlah/total)
+        return round(float(jumlah/total),2)
+
+    def getFinalMean(self):
+        self.final_mean_publish = self.countMean(self.mean_publish)
+        self.final_mean_search = self.countMean(self.mean_search)
+        self.final_publish_time = self.countMean(self.publish_time)
+        self.final_search_time = self.countMean(self.search_time)
 
     # merekam penggunaan CPU (menyimpan hasilnya = opsional)
     def printCpuUsage(self, opt = 'publish', savefig = False):
@@ -138,6 +151,25 @@ class RecordCPU:
         file.write(str(self.mean_search))
         file.close()
 
+        file = open('cpu usage publish time.txt', 'w')
+        file.write(str(self.publish_time))
+        file.close()
+
+        file = open('cpu usage search time.txt', 'w')
+        file.write(str(self.search_time))
+        file.close()
+
+        file = open('list miner.txt', 'w')
+        file.write(str(self.list_miner))
+        file.close()
+
+        file = open('final mean.txt', 'w')
+        file.write('final mean publish: ' + str(self.final_mean_publish))
+        file.write('\nfinal mean search: ' + str(self.final_mean_search))
+        file.write('\nfinal publish time: ' + str(self.final_publish_time))
+        file.write('\nfinal search time: ' + str(self.final_search_time))
+        file.close()
+
     # membaca data list penggunaan CPU dari file biner
     def readData(self):
         self.cpu_usage_publish = load('cpu usage publish.jlb')
@@ -145,7 +177,3 @@ class RecordCPU:
         self.cpu_usage_search = load('cpu usage search.jlb')
         self.mean_search = load('mean cpu usage search.jlb')
 
-    def saveListMiner(self):
-        file = open('list miner.txt','w')
-        file.write(str(self.list_miner))
-        file.close()
