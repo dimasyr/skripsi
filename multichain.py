@@ -182,8 +182,8 @@ class Multichain:
         # mengecek item terakhir (terbaru) apakah sudah di mining
         while (items[0]['confirmations'] == 0):
             items = self.listStreamItems(stream, 1)
-            self.CPU.list_miner.append(self.getMiner(items[0]['txid']))
 
+        self.CPU.list_miner.append(self.getMiner(items[0]['txid']))
         # waktu saat item terakhir (terbaru) sudah di mining
         end = t.time()
         t.sleep(5)
