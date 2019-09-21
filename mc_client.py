@@ -62,5 +62,5 @@ if __name__ == '__main__':
             print('Done reading.')
 
         elif msg == 'savelistminer':
-            MC.saveListMiner()
+            CPU.saveListMiner()
             print('List miner saved.')

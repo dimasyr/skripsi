@@ -12,6 +12,7 @@ class RecordCPU:
         self.search_results = []
         self.mean_publish = []
         self.mean_search = []
+        self.list_miner = []
         self.fontP = FontProperties()
 
         self.fontP.set_size('small')
@@ -135,3 +136,8 @@ class RecordCPU:
         self.mean_publish = load('mean cpu usage publish.jlb')
         self.cpu_usage_search = load('cpu usage search.jlb')
         self.mean_search = load('mean cpu usage search.jlb')
+
+    def saveListMiner(self):
+        file = open('list miner.txt','w')
+        file.write(str(self.list_miner))
+        file.close()

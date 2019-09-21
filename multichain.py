@@ -22,7 +22,7 @@ class Multichain:
         self.rpchost = rpchost
         self.rpcport = rpcport
         self.chainname = chainname
-        self.list_miner = []
+
 
         self.CPU = RecordCPU()
 
@@ -182,7 +182,7 @@ class Multichain:
         # mengecek item terakhir (terbaru) apakah sudah di mining
         while (items[0]['confirmations'] == 0):
             items = self.listStreamItems(stream, 1)
-            self.list_miner.append(self.getMiner(items[0]['txid']))
+            self.CPU.list_miner.append(self.getMiner(items[0]['txid']))
 
         # waktu saat item terakhir (terbaru) sudah di mining
         end = t.time()
@@ -197,11 +197,6 @@ class Multichain:
         print('\nStream last item data : ' + str(items[0]['data']))
         print('Stream last item confirmations : ' + str(items[0]['confirmations']))
         print('Waktu mining = ' + str(mining_time))
-
-    def saveListMiner(self):
-        file = open('list miner.txt','w')
-        file.write(str(self.list_miner))
-        file.close()
 
 # if __name__ == '__main__':
 #     Chain1 = Multichain('multichainrpc', 'A4VZcuwWrn36bGCZLrJ5dgg1QUw6CTPPq8fu5jZfQPNc', 'localhost', '7190', 'dyr')

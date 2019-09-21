@@ -129,7 +129,7 @@ if __name__ == '__main__' :
 
                     elif true_msg == 'savelistminer':
                         serv.broadcast('savelistminer')
-                        Chain1.saveListMiner()
+                        Chain1.CPU.saveListMiner()
                         print('List miner saved.')
 
                     elif true_msg[:6] == 'search':
