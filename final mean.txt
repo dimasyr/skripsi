@@ -1,4 +1,0 @@
-final mean publish: 30.12
-final mean search: 9.57
-final publish time: 11.18
-final search time: 0.02
