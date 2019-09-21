@@ -1,8 +1,8 @@
 import socket, time
 import random, string, sys
 
-# TCP_IP = '10.60.101.126'
-TCP_IP = '127.0.0.1' #localhost
+TCP_IP = '10.60.101.137'
+# TCP_IP = '127.0.0.1' #localhost
 TCP_PORT_IOT = 8882
 
 HEADERSIZE = 7
@@ -25,7 +25,7 @@ iot = True
 try:
     # iot mode
     if iot == True:
-        for i in range(30):
+        for i in range(10):
             # 4 (33 bytes) 52 (129 bytes)
             hex_msg = hexlify(''.join([random.choice(string.ascii_letters) for _ in range(4)]))
             hex_msg2 = f'{len(hex_msg):<{HEADERSIZE}}' + hex_msg

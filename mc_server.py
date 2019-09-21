@@ -2,8 +2,8 @@ import socket, sys, time
 from multichain import Multichain
 import threading
 
-# TCP_IP = '10.60.101.126'
-TCP_IP = '127.0.0.1' #localhost
+TCP_IP = '10.60.101.137'
+# TCP_IP = '127.0.0.1' #localhost
 TCP_PORT = 8881
 TCP_PORT_IOT = 8882
 BUFFER_SIZE = 1024
