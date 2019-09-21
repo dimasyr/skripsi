@@ -91,6 +91,7 @@ class Multichain:
     def getMiner(self, txid):
         data = self.api.getwallettransaction(txid)
         block = self.api.getblock(data['blockhash'])
+
         return block['miner']
 
     def getStreamInfo(self, stream):

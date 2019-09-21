@@ -59,8 +59,3 @@ if __name__ == '__main__':
         elif msg == 'readdata':
             CPU.readData()
             print('Done reading.')
-
-        # menyimpan list miner
-        elif msg == 'savelistminer':
-            CPU.saveListMiner()
-            print('List miner saved.')

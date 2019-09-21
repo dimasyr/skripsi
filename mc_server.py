@@ -128,7 +128,6 @@ if __name__ == '__main__' :
                         print('Done reading.')
 
                     elif true_msg == 'savelistminer':
-                        serv.broadcast('savelistminer')
                         Chain1.CPU.saveListMiner()
                         print('List miner saved.')
 

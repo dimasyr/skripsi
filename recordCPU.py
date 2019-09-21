@@ -130,6 +130,14 @@ class RecordCPU:
         dump(self.cpu_usage_search, 'cpu usage search.jlb')
         dump(self.mean_search, 'mean cpu usage search.jlb')
 
+        file = open('mean cpu usage publish.txt', 'w')
+        file.write(str(self.mean_publish))
+        file.close()
+
+        file = open('mean cpu usage search.txt', 'w')
+        file.write(str(self.mean_search))
+        file.close()
+
     # membaca data list penggunaan CPU dari file biner
     def readData(self):
         self.cpu_usage_publish = load('cpu usage publish.jlb')
