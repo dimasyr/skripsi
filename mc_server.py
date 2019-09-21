@@ -100,8 +100,8 @@ if __name__ == '__main__' :
                     true_msg = bytes.fromhex(hex_msg).decode('utf-8')
                     # print('pesan asli:', true_msg)
 
-                    if true_msg == 'printlen':
-                        serv.broadcast('printlen')
+                    if true_msg == 'printlencpu':
+                        serv.broadcast('printlencpu')
                         Chain1.CPU.lenCPU()
 
                     elif true_msg == 'print':
@@ -113,17 +113,24 @@ if __name__ == '__main__' :
 
                     elif true_msg == 'save':
                         serv.broadcast('save')
-                        print('saving figures')
                         Chain1.CPU.printCpuUsage('publish', True)
                         Chain1.CPU.printCpuUsage('search', True)
+                        print('figures saved')
 
                     elif true_msg == 'savedata':
+                        serv.broadcast('savedata')
                         Chain1.CPU.saveData()
                         print('File saved.')
 
                     elif true_msg == 'readdata':
+                        serv.broadcast('readdata')
                         Chain1.CPU.readData()
                         print('Done reading.')
+
+                    elif true_msg == 'savelistminer':
+                        serv.broadcast('savelistminer')
+                        Chain1.saveListMiner()
+                        print('List miner saved.')
 
                     elif true_msg[:6] == 'search':
                         Chain1.searchItem('stream1',int(true_msg[6:7]))
@@ -136,11 +143,12 @@ if __name__ == '__main__' :
 
                         proses = Chain1.publishStream('stream1', 'key1', hex_msg)
 
-                        # print('proses :',proses)
+                        print('proses :', proses)
 
+                        # memberi tahu client mining selesai
                         if proses == 'done':
                             serv.broadcast('done')
-                            # print('broadcast done')
+                            print('broadcast /done')
 
                     new_msg = True
                     full_msg = ''

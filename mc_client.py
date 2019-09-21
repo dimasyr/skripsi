@@ -1,6 +1,7 @@
 import socket
 import threading
 from recordCPU import RecordCPU
+from multichain import Multichain
 
 if __name__ == '__main__':
 
@@ -15,6 +16,7 @@ if __name__ == '__main__':
     client_socket.connect(server_address)
 
     CPU = RecordCPU()
+    MC = Multichain()
     # cl = Client()
 
     while True:
@@ -23,29 +25,42 @@ if __name__ == '__main__':
 
         msg = client_socket.recv(1024).decode('utf-8')
 
-        if(msg == 'mine'):
+        if msg == 'mine':
             print('mining...')
             CPU.is_mining = True
             CPU.record_cpu = True
             threading.Thread(target=CPU.recordCpuUsage).start()
 
             msg = client_socket.recv(1024).decode('utf-8')
-            if(msg == 'done'):
+            if msg == 'done':
                 CPU.is_mining = False
                 CPU.record_cpu = False
                 print('done mining.')
 
         # print grafik cpu usage
-        elif(msg == 'print'):
+        elif msg == 'print':
             print('print')
             CPU.printCpuUsage()
 
         # print panjang list cpu
-        elif (msg == 'printlen'):
-            print('printlen')
+        elif msg == 'printlencpu':
+            print('printlencpu')
             CPU.lenCPU()
 
         # menyimpan grafik cpu
-        elif(msg == 'save'):
-            print('saving figures')
-            CPU.printCpuUsage('publish',True)
+        elif msg == 'save':
+            CPU.printCpuUsage('publish', True)
+            CPU.printCpuUsage('search', True)
+            print('figures saved')
+
+        elif msg== 'savedata':
+            CPU.saveData()
+            print('File saved.')
+
+        elif msg == 'readdata':
+            CPU.readData()
+            print('Done reading.')
+
+        elif msg == 'savelistminer':
+            MC.saveListMiner()
+            print('List miner saved.')

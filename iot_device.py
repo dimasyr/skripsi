@@ -20,12 +20,12 @@ sock.connect(server_address)
 
 msg = ''
 
-iot = False
+iot = True
 
 try:
     # iot mode
     if iot == True:
-        for i in range(5):
+        for i in range(30):
             # 4 (33 bytes) 52 (129 bytes)
             hex_msg = hexlify(''.join([random.choice(string.ascii_letters) for _ in range(4)]))
             hex_msg2 = f'{len(hex_msg):<{HEADERSIZE}}' + hex_msg
